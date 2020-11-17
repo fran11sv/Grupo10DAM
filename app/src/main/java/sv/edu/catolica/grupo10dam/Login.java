@@ -36,7 +36,7 @@ public class Login extends AppCompatActivity {
         usuario=etUsuario.getText().toString();
         contra=etContra.getText().toString();
 
-        url="http://192.168.0.9/FeedMeSv/login.php";
+        url="https://fairylike-drill.000webhostapp.com/login.php";
 
         RequestParams parametros= new RequestParams();
         parametros.put("usu",usuario);

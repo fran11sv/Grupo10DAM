@@ -41,7 +41,7 @@ public class Registrarse extends AppCompatActivity {
         contra=etContra.getText().toString();
         telefono=etTelefono.getText().toString();
 
-        url="http://192.168.0.9/FeedMeSv/registrarClientes.php";
+        url="https://fairylike-drill.000webhostapp.com/registrarClientes.php";
 
         RequestParams parametros= new RequestParams();
         parametros.put("nombres",nombres);
