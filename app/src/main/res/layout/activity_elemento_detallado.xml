@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="contentDescription"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="16sp"
+    android:paddingLeft="64sp"
+    android:paddingRight="64sp"
+    android:paddingTop="16sp"
+    tools:context=".ElementoDetallado">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtNombre"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:textSize="23sp"
+        android:text="@string/txtNombre"
+        android:paddingBottom="14sp"
+        android:paddingLeft="64sp"
+        android:paddingRight="64sp"
+        android:paddingTop="14sp"/>
+    <ImageView
+        android:layout_width="200sp"
+        android:layout_height="150sp"
+        android:id="@+id/Imagen"
+        android:layout_gravity="center"
+        android:layout_margin="10sp"
+        android:src="@drawable/flan"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="100sp"
+        android:id="@+id/txtDescripcion"
+        android:textStyle="italic"
+        android:gravity="center"
+        android:textSize="25sp"
+        android:text="@string/txtDescripcion"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10sp"
+        android:orientation="vertical">
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5sp"
+            android:id="@+id/btnAgregar"
+            android:text="@string/btnAgregar"/>
+        <TextView
+            android:id="@+id/txtPrecio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5sp"
+            android:textStyle="italic"
+            android:textSize="30sp"
+            android:text="@string/txtPrecio"/>
+        <Button
+            android:id="@+id/btnComprar"
+            android:layout_marginTop="5sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/btnComprar"/>
+
+    </LinearLayout>
+
+</LinearLayout>

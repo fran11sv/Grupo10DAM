@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="UseCompoundDrawables, contentDescription"
+    android:orientation="vertical"
+    android:layout_marginTop="10sp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:id="@+id/Imagen"
+        android:layout_gravity="center"
+        android:layout_width="180sp"
+        android:layout_height="150sp"
+        android:src="@drawable/flan"/>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10sp"
+        android:layout_gravity="center">
+        <TextView
+            android:id="@+id/txtNombre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/txtNombre"
+            android:textSize="15sp"
+            android:textStyle="bold"/>
+    </RelativeLayout>
+</LinearLayout>
+
+
