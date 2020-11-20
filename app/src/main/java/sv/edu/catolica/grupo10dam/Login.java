@@ -1,12 +1,12 @@
 package sv.edu.catolica.grupo10dam;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
@@ -48,23 +48,19 @@ public class Login extends AppCompatActivity {
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
                 if (statusCode==200){
                     String respuesta=new String(responseBody);
-
                     try {
                         JSONObject obj= new JSONObject(respuesta);
 
                         if (obj.names().get(0).equals("exito")){
                             resultado=obj.getString("exito")+" ";
                             resultado+=obj.getString("usuario");
+                            Intent intent= new Intent(getApplicationContext(), MenuListview.class);
+                            startActivity(intent);
                         }else{
                             resultado=obj.getString("error");
                         }
-
-
                         Toast.makeText(getApplicationContext(),resultado,Toast.LENGTH_LONG).show();
-
-                        Intent intent= new Intent(getApplicationContext(), MenuPrincipal.class);
-                        startActivity(intent);
-                    } catch (JSONException e) {
+                        } catch (JSONException e) {
                         e.printStackTrace();
                     }
 
