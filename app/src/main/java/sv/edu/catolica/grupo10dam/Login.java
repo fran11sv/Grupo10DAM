@@ -54,7 +54,7 @@ public class Login extends AppCompatActivity {
                         if (obj.names().get(0).equals("exito")){
                             resultado=obj.getString("exito")+" ";
                             resultado+=obj.getString("usuario");
-                            Intent intent= new Intent(getApplicationContext(), MenuListview.class);
+                            Intent intent= new Intent(getApplicationContext(), MenuGridview.class);
                             startActivity(intent);
                         }else{
                             resultado=obj.getString("error");

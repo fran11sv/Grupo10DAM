@@ -6,39 +6,70 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.GridView;
+import android.widget.Toast;
+
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.AsyncHttpResponseHandler;
+
+import org.json.JSONArray;
 
 import java.util.ArrayList;
 
+import cz.msebera.android.httpclient.Header;
+
 public class MenuGridview extends AppCompatActivity {
-    GridView gridView;
-    private AdaptadorGrid adaptador;
-    private ArrayList<Entidad> arrayentidad;
+    private GridView gridView;
+    private AsyncHttpClient cliente;
+    private AdaptadorMenus adaptadorMenus;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_gridview);
 
         gridView = findViewById(R.id.gridView);
-        arrayentidad = GetArrayItems();
-        adaptador= new AdaptadorGrid(this, arrayentidad);
-        gridView.setAdapter(adaptador);
+        cliente = new AsyncHttpClient();
+        obtenerMenu();
 
-        gridView.setOnItemClickListener((AdapterView<?> parent, View view, int position, long id) -> {
-            Intent intent = new Intent( MenuGridview.this, MenuListview.class);
-            intent.putExtra("objData", arrayentidad.get(position));
-            startActivity(intent);
+    }
+
+    private void obtenerMenu() {
+        String url = "https://fairylike-drill.000webhostapp.com/verMenu.php";
+        cliente.post(url, new AsyncHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+                if (statusCode == 200) {
+                    listarMenu(new String(responseBody));
+                }
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+
+            }
         });
     }
 
-    private ArrayList<Entidad> GetArrayItems(){
-        ArrayList<Entidad> listItems = new ArrayList<>();
-        listItems.add(new Entidad(R.drawable.desayuno,"Menu 1","",""));
-        listItems.add(new Entidad(R.drawable.almuerzo,"Menu 2","",""));
-        listItems.add(new Entidad(R.drawable.cena,"Menu 3","",""));
-        listItems.add(new Entidad(R.drawable.varia,"Menu 4","",""));
-        listItems.add(new Entidad(R.drawable.rapida,"Menu 5","",""));
-
-        return listItems;
+    private void listarMenu(String respuesta) {
+        ArrayList <EntidadMenus> lista= new ArrayList<> ();
+        try {
+            JSONArray jsonArray = new JSONArray(respuesta);
+            for (int i =0; i < jsonArray.length();i++){
+                EntidadMenus m = new EntidadMenus();
+                m.setId_menu(jsonArray.getJSONObject(i).getInt("id_menu"));
+                m.setMenu(jsonArray.getJSONObject(i).getString("menu"));
+                m.setDescripcion(jsonArray.getJSONObject(i).getString("descripcion"));
+                m.setEstado(jsonArray.getJSONObject(i).getInt("estado"));
+                lista.add(m);
+            }
+            //ArrayAdapter<EntidadMenus> a =new ArrayAdapter(this, android.R.layout.simple_list_item_1,lista);
+            //lvItems.setAdapter(a);
+            adaptadorMenus = new AdaptadorMenus(this, lista);
+            gridView.setAdapter(adaptadorMenus);
+        }catch (Exception e){
+            Toast.makeText(getApplicationContext(),e.toString(),Toast.LENGTH_LONG).show();
+        }
     }
 }

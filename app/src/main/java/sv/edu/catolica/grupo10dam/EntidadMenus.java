@@ -1,6 +1,8 @@
 package sv.edu.catolica.grupo10dam;
 
-public class EntidadMenus {
+import java.io.Serializable;
+
+public class EntidadMenus implements Serializable {
     private int id_menu;
     private String menu;
     private String descripcion;
