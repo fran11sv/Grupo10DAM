@@ -14,7 +14,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/txtNombre"
+        android:id="@+id/txtNombrePlato"
         android:textStyle="bold"
         android:gravity="center"
         android:textSize="23sp"
@@ -26,14 +26,14 @@
     <ImageView
         android:layout_width="200sp"
         android:layout_height="150sp"
-        android:id="@+id/Imagen"
+        android:id="@+id/ImagenPlato"
         android:layout_gravity="center"
         android:layout_margin="10sp"
         android:src="@drawable/flan"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="100sp"
-        android:id="@+id/txtDescripcion"
+        android:id="@+id/txtDescripcionPlato"
         android:textStyle="italic"
         android:gravity="center"
         android:textSize="25sp"
@@ -51,7 +51,7 @@
             android:id="@+id/btnAgregar"
             android:text="@string/btnAgregar"/>
         <TextView
-            android:id="@+id/txtPrecio"
+            android:id="@+id/txtPrecioPlato"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5sp"

@@ -11,7 +11,7 @@ tools:context=".MenuListview">
 <ImageView
     android:layout_width="150sp"
     android:layout_height="140sp"
-    android:id="@+id/Imagen"
+    android:id="@+id/platoImagen"
     android:src="@drawable/flan"/>
 
 <LinearLayout
@@ -23,16 +23,23 @@ tools:context=".MenuListview">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/txtNombre"
+        android:id="@+id/txtPlato"
         android:textStyle="bold"
-        android:textSize="30sp"
+        android:textSize="20sp"
         android:text="@string/txtNombre"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/txtPrecio"
+        android:id="@+id/txtDescrip"
+        android:textStyle="bold"
+        android:textSize="15sp"
+        android:text="@string/txtNombre"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtPreciop"
         android:textStyle="italic"
-        android:textSize="28sp"
+        android:textSize="20sp"
         android:text="@string/txtPrecio"/>
 
 </LinearLayout>

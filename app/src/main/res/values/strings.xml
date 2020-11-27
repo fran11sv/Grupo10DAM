@@ -2,7 +2,7 @@
     <string name="app_name">Grupo10DAM</string>
     <string name="txtNombre">Nombre del elemento</string>
     <string name="txtDescripcion">Descripcion del elemento</string>
-    <string name="btnAgregar">Agregar al carrito</string>
+    <string name="btnAgregar">Agregar Al Carrito</string>
     <string name="txtPrecio">$ 00.00</string>
-    <string name="btnComprar">Comprar ahora</string>
+    <string name="btnComprar">Ordenar Ahora</string>
 </resources>

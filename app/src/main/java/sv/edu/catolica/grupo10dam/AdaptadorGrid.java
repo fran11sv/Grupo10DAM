@@ -38,7 +38,7 @@ public class AdaptadorGrid extends BaseAdapter {
     @SuppressLint({"InflateParams", "ViewHolder"})
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        Entidad Item = (Entidad) getItem(position);
+        /*Entidad Item = (Entidad) getItem(position);
 
         convertView= LayoutInflater.from(context).inflate(R.layout.formato_gridview, null);
         ImageView imagen = convertView.findViewById(R.id.Imagen);
@@ -46,6 +46,7 @@ public class AdaptadorGrid extends BaseAdapter {
 
         imagen.setImageResource(Item.getImagen());
         nombre.setText(Item.getNombre());
-        return convertView;
+        return convertView;*/
+        return null;
     }
 }

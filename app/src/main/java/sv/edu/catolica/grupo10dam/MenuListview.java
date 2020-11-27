@@ -4,14 +4,19 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
 
 import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -19,7 +24,8 @@ import cz.msebera.android.httpclient.Header;
 
 public class MenuListview extends AppCompatActivity {
     private ListView lvItems;
-    private AsyncHttpClient cliente;
+    private AdaptadorPlatos adaptadorPlatos;
+    private int idMenu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,18 +33,34 @@ public class MenuListview extends AppCompatActivity {
         setContentView(R.layout.activity_menu_listview);
 
         lvItems = findViewById(R.id.listView);
-        cliente = new AsyncHttpClient();
-        obtenerMenu();
+        obtenerPlato();
+
+        Bundle datos = this.getIntent().getExtras();
+        idMenu = datos.getInt("idMenu");
+        String menu = datos.getString("nombre");
+        //String descripcion = datos.getString("descrip");
+        //int estado = datos.getInt("estado");
+
+        Toast toast = Toast.makeText(this, "Has seleccionado el menu :"+idMenu+" "+menu, Toast.LENGTH_SHORT);
+        toast.show();
 
     }
 
-    private void obtenerMenu() {
-        String url = "https://fairylike-drill.000webhostapp.com/verMenu.php";
-        cliente.post(url, new AsyncHttpResponseHandler() {
+    private void obtenerPlato() {
+
+        String url = "https://fairylike-drill.000webhostapp.com/verPlatos3.php";
+        Bundle datos = this.getIntent().getExtras();
+        idMenu = datos.getInt("idMenu");
+
+        RequestParams parametro= new RequestParams();
+        parametro.put("id_menu", idMenu);
+
+        AsyncHttpClient cliente = new AsyncHttpClient();
+        cliente.post(url, parametro, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
                 if (statusCode == 200) {
-                    listarMenu(new String(responseBody));
+                    listarPlatos(new String(responseBody));
                 }
             }
 
@@ -49,20 +71,25 @@ public class MenuListview extends AppCompatActivity {
         });
     }
 
-    private void listarMenu(String respuesta) {
-    ArrayList <EntidadMenus> lista= new ArrayList <EntidadMenus> ();
+    private void listarPlatos(String respuesta) {
+    ArrayList <EntidadPlatos> listaplatos= new ArrayList<> ();
     try {
         JSONArray jsonArray = new JSONArray(respuesta);
-        for (int i =0; i < jsonArray.length();i++){
-            EntidadMenus m = new EntidadMenus();
-            m.setId_menu(jsonArray.getJSONObject(i).getInt("id_menu"));
-            m.setMenu(jsonArray.getJSONObject(i).getString("menu"));
-            m.setDescripcion(jsonArray.getJSONObject(i).getString("descripcion"));
-            m.setEstado(jsonArray.getJSONObject(i).getInt("estado"));
-            lista.add(m);
+        for (int i =0; i < jsonArray.length(); i++){
+            EntidadPlatos p = new EntidadPlatos();
+            p.setId_plato(jsonArray.getJSONObject(i).getInt("id_plato"));
+            p.setId_menu(jsonArray.getJSONObject(i).getInt("id_menu"));
+            p.setId_categoria(jsonArray.getJSONObject(i).getInt("id_categoria"));
+            p.setPlato(jsonArray.getJSONObject(i).getString("plato"));
+            p.setPrecio(jsonArray.getJSONObject(i).getDouble("precio"));
+            p.setDescripcion(jsonArray.getJSONObject(i).getString("descripcion"));
+            //p.setImg_plato(jsonArray.getJSONObject(i).getString("imag_plato"));
+            p.setEstado(jsonArray.getJSONObject(i).getInt("estado"));
+            listaplatos.add(p);
         }
-        ArrayAdapter <EntidadMenus> a =new ArrayAdapter(this, android.R.layout.simple_list_item_1,lista);
-        lvItems.setAdapter(a);
+        adaptadorPlatos = new AdaptadorPlatos(this, listaplatos);
+        lvItems.setAdapter(adaptadorPlatos);
+
     }catch (Exception e){
         Toast.makeText(getApplicationContext(),e.toString(),Toast.LENGTH_LONG).show();
     }
