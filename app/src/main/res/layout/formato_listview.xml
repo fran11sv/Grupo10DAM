@@ -5,8 +5,10 @@
     tools:ignore="contentDescription"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal"
     android:layout_gravity="center"
+    android:orientation="horizontal"
+    android:background="#FFC15A"
+    android:padding="5sp"
     tools:context=".MenuListview">
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,20 +19,20 @@
             android:layout_height="wrap_content"
             android:id="@+id/txtPlato"
             android:textStyle="bold"
-            android:textSize="25sp"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF"
             android:gravity="center"
             android:text="@string/txtNombre"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:padding="10sp">
+            android:padding="3sp">
             <ImageView
-                android:layout_width="150sp"
-                android:layout_height="120sp"
-                android:layout_gravity="center"
+                android:layout_width="130sp"
+                android:layout_height="115sp"
                 android:id="@+id/platoImagen"
-                android:src="@drawable/cena"/>
+                android:src="@drawable/rapida"/>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -39,9 +41,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_marginStart="3sp"
                 android:id="@+id/txtDescrip"
                 android:textStyle="italic"
-                android:textSize="20sp"
+                android:textSize="15sp"
+                android:textColor="#FFFFFF"
                 android:text="@string/txtNombre"/>
             <TextView
                 android:layout_width="match_parent"
@@ -50,6 +54,7 @@
                 android:id="@+id/txtPreciop"
                 android:textStyle="italic"
                 android:textSize="15sp"
+                android:textColor="#FFFFFF"
                 android:text="@string/txtPrecio"/>
             </LinearLayout>
         </LinearLayout>

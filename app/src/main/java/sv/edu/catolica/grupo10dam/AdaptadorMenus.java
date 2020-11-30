@@ -58,7 +58,6 @@ public class AdaptadorMenus extends BaseAdapter {
         descripcion.setText(itemMenus.getDescripcion());
         // estado.setText(itemMenus.getEstado());
 
-
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

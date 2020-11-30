@@ -32,7 +32,6 @@ public class MenuGridview extends AppCompatActivity {
         gridView = findViewById(R.id.gridView);
         cliente = new AsyncHttpClient();
         obtenerMenu();
-
     }
 
     private void obtenerMenu() {
@@ -64,8 +63,6 @@ public class MenuGridview extends AppCompatActivity {
                 m.setEstado(jsonArray.getJSONObject(i).getInt("estado"));
                 lista.add(m);
             }
-            //ArrayAdapter<EntidadMenus> a =new ArrayAdapter(this, android.R.layout.simple_list_item_1,lista);
-            //lvItems.setAdapter(a);
             adaptadorMenus = new AdaptadorMenus(this, lista);
             gridView.setAdapter(adaptadorMenus);
         }catch (Exception e){

@@ -41,8 +41,8 @@ public class MenuListview extends AppCompatActivity {
         //String descripcion = datos.getString("descrip");
         //int estado = datos.getInt("estado");
 
-        Toast toast = Toast.makeText(this, "Has seleccionado el menu :"+idMenu+" "+menu, Toast.LENGTH_SHORT);
-        toast.show();
+        //Toast toast = Toast.makeText(this, "Has seleccionado el menu :"+idMenu+" "+menu, Toast.LENGTH_SHORT);
+        //toast.show();
 
     }
 

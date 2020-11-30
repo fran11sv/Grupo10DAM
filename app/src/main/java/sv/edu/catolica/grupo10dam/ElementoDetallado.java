@@ -25,8 +25,8 @@ public class ElementoDetallado extends AppCompatActivity {
         String descrip = datos.getString("descrip");
         Double precioP = datos.getDouble("precio");
 
-        Toast toast = Toast.makeText(this, "Has seleccionado el plato: "+id_plato+" "+namePlato, Toast.LENGTH_SHORT);
-        toast.show();
+        //Toast toast = Toast.makeText(this, "Has seleccionado el plato: "+id_plato+" "+namePlato, Toast.LENGTH_SHORT);
+        //toast.show();
 
         //Item = (Entidad) getIntent().getSerializableExtra("objData");
 
@@ -40,8 +40,10 @@ public class ElementoDetallado extends AppCompatActivity {
         //imagen.setImageResource();
         descripcion.setText(descrip);
         String precioString = Double.toString(precioP);
+        precioString = "Precio: $"+precioString;
         precio.setText(precioString);
         String cantidadString = Integer.toString(count);
+        cantidadString = "Cantidad: $"+cantidadString;
         cantidad.setText(cantidadString);
     }
     public void suma(View view) {

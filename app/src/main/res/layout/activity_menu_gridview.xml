@@ -9,23 +9,28 @@
     tools:context=".MenuGridview">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center">
+        android:layout_height="110sp"
+        android:background="#0101DF">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:gravity="center|bottom"
         android:id="@+id/txtMenus"
         android:textStyle="bold"
-        android:gravity="center"
+        android:textColor="#F3F3F3"
         android:textSize="45sp"
         android:text="@string/txtMenus"/>
     </LinearLayout>
     <GridView
         android:numColumns="2"
         android:id="@+id/gridView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:verticalSpacing="10sp"
-        android:horizontalSpacing="10sp"
-        android:layout_gravity="center"/>
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5sp"
+        android:layout_marginStart="10sp"
+        android:layout_marginEnd="10sp"
+        android:layout_gravity="center"
+        android:stretchMode="columnWidth"
+        android:verticalSpacing="15sp"
+        android:horizontalSpacing="10sp" />
 </LinearLayout>

@@ -55,7 +55,7 @@ public class AdaptadorPlatos extends BaseAdapter {
 
         plato.setText(itemPlatos.getPlato());
         descripcion_plato.setText(itemPlatos.getDescripcion());
-        precio_plato.setText(Double.toString(itemPlatos.getPrecio()));
+        precio_plato.setText(("Precio: $"+itemPlatos.getPrecio()));
 
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
