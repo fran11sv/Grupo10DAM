@@ -7,9 +7,10 @@
     android:layout_height="wrap_content"
     android:layout_gravity="center"
     android:orientation="horizontal"
-    android:background="#FFC15A"
     android:padding="5sp"
-    tools:context=".MenuListview">
+    android:background="@color/dark_primary_purple"
+    tools:context=".MenuListview"
+    >
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

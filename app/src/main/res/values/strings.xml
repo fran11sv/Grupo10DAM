@@ -9,5 +9,5 @@
     <string name="btnSuma"> + </string>
     <string name="btnResta"> - </string>
     <string name="txtMenus"> MENÚS </string>
-    <string name="txtPlatos"> PLATOS POR MENÚ </string>
+    <string name="txtPlatos"> PLATOS </string>
 </resources>

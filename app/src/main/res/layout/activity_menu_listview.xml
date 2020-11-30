@@ -11,7 +11,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="120sp"
-        android:background="#0101DF">
+        android:background="@color/dark_primary_purple">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -19,8 +19,14 @@
             android:textStyle="bold"
             android:gravity="bottom|center"
             android:textColor="#F3F3F3"
-            android:textSize="35sp"
+            android:textSize="45sp"
             android:text="@string/txtPlatos"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@drawable/wave">
+
     </LinearLayout>
     <ListView
         android:layout_width="match_parent"

@@ -13,8 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Grupo10DAM">
-        <activity android:name=".ElementoDetallado"></activity>
-        <activity android:name=".MenuListview" />
+        <activity android:name=".ElementoDetallado" android:screenOrientation="portrait"></activity>
+        <activity android:name=".MenuListview" android:screenOrientation="portrait"/>
         <activity android:name=".MenuGridview" android:screenOrientation="portrait" />
         <activity android:name=".Registrarse" android:screenOrientation="portrait"/>
         <activity android:name=".MenuPrincipal" />
