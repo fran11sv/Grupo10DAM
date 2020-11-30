@@ -1,44 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     tools:ignore="contentDescription"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:paddingBottom="16sp"
-    android:paddingLeft="64sp"
-    android:paddingRight="64sp"
-    android:paddingTop="16sp"
+    android:paddingLeft="30sp"
+    android:paddingRight="30sp"
+    android:paddingTop="15sp"
     tools:context=".ElementoDetallado">
-
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textSize="30sp"
         android:id="@+id/txtNombrePlato"
         android:textStyle="bold"
         android:gravity="center"
-        android:textSize="23sp"
-        android:text="@string/txtNombre"
-        android:paddingBottom="14sp"
-        android:paddingLeft="64sp"
-        android:paddingRight="64sp"
-        android:paddingTop="14sp"/>
+        android:text="@string/txtNombre"/>
     <ImageView
-        android:layout_width="200sp"
-        android:layout_height="150sp"
+        android:layout_width="250sp"
+        android:layout_height="200sp"
         android:id="@+id/ImagenPlato"
         android:layout_gravity="center"
         android:layout_margin="10sp"
-        android:src="@drawable/flan"/>
+        android:src="@drawable/varia"/>
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="100sp"
+        android:layout_height="wrap_content"
         android:id="@+id/txtDescripcionPlato"
         android:textStyle="italic"
         android:gravity="center"
-        android:textSize="25sp"
+        android:textSize="20sp"
         android:text="@string/txtDescripcion"/>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -47,24 +41,51 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5sp"
             android:id="@+id/btnAgregar"
             android:text="@string/btnAgregar"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10sp"
+            android:orientation="horizontal">
         <TextView
             android:id="@+id/txtPrecioPlato"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5sp"
             android:textStyle="italic"
-            android:textSize="30sp"
+            android:textSize="20sp"
             android:text="@string/txtPrecio"/>
+            <Button
+                android:id="@+id/btnSuma"
+                android:layout_width="45sp"
+                android:layout_height="50sp"
+                android:onClick="suma"
+                android:textSize="20sp"
+                android:layout_marginStart="10sp"
+                android:text="@string/btnSuma"/>
+            <TextView
+                android:id="@+id/txtCantidad"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5sp"
+                android:textStyle="italic"
+                android:textSize="20sp"
+                android:text="@string/txtCantidad"/>
+            <Button
+                android:id="@+id/btnResta"
+                android:layout_width="45sp"
+                android:layout_height="50sp"
+                android:onClick="resta"
+                android:textSize="20sp"
+                android:layout_marginStart="10sp"
+                android:text="@string/btnResta"/>
+        </LinearLayout>
         <Button
             android:id="@+id/btnComprar"
             android:layout_marginTop="5sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/btnComprar"/>
-
     </LinearLayout>
-
 </LinearLayout>

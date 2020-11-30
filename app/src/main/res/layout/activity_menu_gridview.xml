@@ -1,16 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_gravity="center"
     tools:context=".MenuGridview">
-
-    <GridView
-        android:id="@+id/gridView"
-        android:numColumns="2"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:verticalSpacing="5sp"
-        android:horizontalSpacing="5sp"/>
-
+        android:id="@+id/txtMenus"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:textSize="45sp"
+        android:text="@string/txtMenus"/>
+    </LinearLayout>
+    <GridView
+        android:numColumns="2"
+        android:id="@+id/gridView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:verticalSpacing="10sp"
+        android:horizontalSpacing="10sp"
+        android:layout_gravity="center"/>
 </LinearLayout>
