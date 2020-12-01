@@ -10,4 +10,5 @@
     <string name="btnResta"> - </string>
     <string name="txtMenus"> MENÚS </string>
     <string name="txtPlatos"> PLATOS </string>
+    <string name="txtDPlatos"> PLATO </string>
 </resources>
