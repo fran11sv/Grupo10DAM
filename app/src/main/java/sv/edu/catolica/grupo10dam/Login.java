@@ -1,6 +1,7 @@
 package sv.edu.catolica.grupo10dam;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -50,7 +51,8 @@ public class Login extends AppCompatActivity {
                     String respuesta=new String(responseBody);
                     try {
                         JSONObject obj= new JSONObject(respuesta);
-
+                        int id_usu = obj.getInt("id_usuario");
+                        EnviarID(id_usu);
                         if (obj.names().get(0).equals("exito")){
                             resultado=obj.getString("exito")+" ";
                             resultado+=obj.getString("usuario");
@@ -72,6 +74,13 @@ public class Login extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(),"Error en la conexión",Toast.LENGTH_LONG).show();
             }
         });
+    }
+
+    private void EnviarID(int id_usu) {
+        SharedPreferences idUsuario = getSharedPreferences(null, MODE_PRIVATE);
+        SharedPreferences.Editor editor = idUsuario.edit();
+        editor.putInt("id_usuario", id_usu);
+        editor.commit();
     }
 
     public void registrarse(View view){
