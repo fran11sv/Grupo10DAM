@@ -1,9 +1,12 @@
 package sv.edu.catolica.grupo10dam;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -50,7 +53,32 @@ public class MenuGridview extends AppCompatActivity {
             }
         });
     }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_principal,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
 
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.add:
+                //txtMensaje.setText(getString(R.string.textoExplicativo)+getString(R.string.agregar));
+                break;
+            //case R.id.search:
+                //txtMensaje.setText(getString(R.string.textoExplicativo)+getString(R.string.buscar));
+                //break;
+            case R.id.edit:
+                //txtMensaje.setText(getString(R.string.textoExplicativo)+getString(R.string.modificar));
+                break;
+            case R.id.delete:
+                //txtMensaje.setText(getString(R.string.textoExplicativo)+getString(R.string.eliminar));
+                break;
+            default:
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
     private void listarMenu(String respuesta) {
         ArrayList <EntidadMenus> lista= new ArrayList<> ();
         try {
@@ -65,6 +93,17 @@ public class MenuGridview extends AppCompatActivity {
             }
             adaptadorMenus = new AdaptadorMenus(this, lista);
             gridView.setAdapter(adaptadorMenus);
+            gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+               @Override
+               public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                   try {
+                       EntidadMenus p = lista.get(i);
+                       Toast.makeText(getApplicationContext(),"Este es el menu de "+ p.getMenu(),Toast.LENGTH_LONG).show();
+                   }catch (Exception e){
+                       Toast.makeText(getApplicationContext(),e.toString(),Toast.LENGTH_LONG).show();
+                   }
+               }
+           });
         }catch (Exception e){
             Toast.makeText(getApplicationContext(),e.toString(),Toast.LENGTH_LONG).show();
         }
