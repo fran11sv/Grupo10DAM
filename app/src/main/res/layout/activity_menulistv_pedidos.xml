@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="contentDescription"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    tools:context=".MenulistvPedidos">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="120sp"
+        android:background="@color/dark_primary_purple">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/txtPedidos"
+            android:textStyle="bold"
+            android:gravity="bottom|center"
+            android:textColor="#F3F3F3"
+            android:textSize="45sp"
+            android:text="@string/txtPedidos"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@drawable/wave">
+
+    </LinearLayout>
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/listViewPedidos"
+        android:layout_marginTop="5sp"
+        android:layout_marginStart="10sp"
+        android:layout_marginEnd="13sp"
+        android:layout_gravity="center"
+        android:dividerHeight="20sp"/>
+</LinearLayout>

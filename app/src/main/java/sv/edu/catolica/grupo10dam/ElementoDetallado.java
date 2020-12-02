@@ -126,6 +126,8 @@ public class ElementoDetallado extends AppCompatActivity {
                         JSONObject obj= new JSONObject(respuesta);
                         if (obj.names().get(0).equals("exito")){
                             resultado=obj.getString("exito");
+                            Intent intent = new Intent(ElementoDetallado.this, MenulistvPedidos.class);
+                            startActivity(intent);
                         }else{
                             resultado=obj.getString("error");
                         }

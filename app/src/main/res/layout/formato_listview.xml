@@ -9,8 +9,7 @@
     android:orientation="horizontal"
     android:padding="5sp"
     android:background="@color/dark_primary_purple"
-    tools:context=".MenuListview"
-    >
+    tools:context=".MenuListview">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -37,7 +37,7 @@ public class MenuListview extends AppCompatActivity {
 
         Bundle datos = this.getIntent().getExtras();
         idMenu = datos.getInt("idMenu");
-        String menu = datos.getString("nombre");
+        //String menu = datos.getString("nombre");
         //String descripcion = datos.getString("descrip");
         //int estado = datos.getInt("estado");
 
@@ -89,7 +89,6 @@ public class MenuListview extends AppCompatActivity {
         }
         adaptadorPlatos = new AdaptadorPlatos(this, listaplatos);
         lvItems.setAdapter(adaptadorPlatos);
-
     }catch (Exception e){
         Toast.makeText(getApplicationContext(),e.toString(),Toast.LENGTH_LONG).show();
     }
