@@ -35,6 +35,7 @@ public class MenuGridview extends AppCompatActivity {
         gridView = findViewById(R.id.gridView);
         cliente = new AsyncHttpClient();
         obtenerMenu();
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

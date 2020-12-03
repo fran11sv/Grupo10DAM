@@ -65,6 +65,7 @@ public class ElementoDetallado extends AppCompatActivity {
         String cantidadString = Integer.toString(count);
         cantidadString = "Cantidad: $"+cantidadString;
         txtCantidad.setText(cantidadString);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

@@ -32,6 +32,7 @@ public class MenulistvPedidos extends AppCompatActivity {
 
         lvItemsPedidos = findViewById(R.id.listViewPedidos);
         obtenerPedido();
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
     }
 
     private void obtenerPedido() {

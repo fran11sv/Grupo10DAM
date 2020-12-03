@@ -40,6 +40,7 @@ public class MenuListview extends AppCompatActivity {
 
         Bundle datos = this.getIntent().getExtras();
         idMenu = datos.getInt("idMenu");
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
         //String menu = datos.getString("nombre");
         //String descripcion = datos.getString("descrip");
         //int estado = datos.getInt("estado");
