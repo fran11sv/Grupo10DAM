@@ -1,9 +1,12 @@
 package sv.edu.catolica.grupo10dam;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -44,6 +47,32 @@ public class MenuListview extends AppCompatActivity {
         //Toast toast = Toast.makeText(this, "Has seleccionado el menu :"+idMenu+" "+menu, Toast.LENGTH_SHORT);
         //toast.show();
 
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_principal,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.carrito:
+                Intent intent3= new Intent(getApplicationContext(), MenulistvPedidos.class);
+                startActivity(intent3);
+                break;
+            case R.id.cerrarSesion:
+                Intent intent2= new Intent(getApplicationContext(), Login.class);
+                startActivity(intent2);
+                break;
+            case R.id.cuenta:
+                Intent intent= new Intent(getApplicationContext(),MenuGridview.class);
+                startActivity(intent);
+                break;
+            default:
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     private void obtenerPlato() {

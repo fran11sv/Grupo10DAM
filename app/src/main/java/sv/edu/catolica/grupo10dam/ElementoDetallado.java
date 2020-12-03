@@ -1,5 +1,6 @@
 package sv.edu.catolica.grupo10dam;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
@@ -7,6 +8,8 @@ import android.app.VoiceInteractor;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -63,6 +66,33 @@ public class ElementoDetallado extends AppCompatActivity {
         cantidadString = "Cantidad: $"+cantidadString;
         txtCantidad.setText(cantidadString);
     }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_principal,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.carrito:
+                Intent intent3= new Intent(getApplicationContext(), MenulistvPedidos.class);
+                startActivity(intent3);
+                break;
+            case R.id.cerrarSesion:
+                Intent intent2= new Intent(getApplicationContext(), Login.class);
+                startActivity(intent2);
+                break;
+            case R.id.cuenta:
+                Intent intent= new Intent(getApplicationContext(),MenuGridview.class);
+                startActivity(intent);
+                break;
+            default:
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
     public void suma(View view) {
         count++;
         String cantidadString = Integer.toString(count);

@@ -36,7 +36,32 @@ public class MenuGridview extends AppCompatActivity {
         cliente = new AsyncHttpClient();
         obtenerMenu();
     }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_principal,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
 
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.carrito:
+                Intent intent3= new Intent(getApplicationContext(), MenulistvPedidos.class);
+                startActivity(intent3);
+                break;
+            case R.id.cerrarSesion:
+                Intent intent2= new Intent(getApplicationContext(), Login.class);
+                startActivity(intent2);
+                break;
+            case R.id.cuenta:
+                Intent intent= new Intent(getApplicationContext(),MenuGridview.class);
+                startActivity(intent);
+                break;
+            default:
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
     private void obtenerMenu() {
         String url = "https://fairylike-drill.000webhostapp.com/verMenu.php";
         cliente.post(url, new AsyncHttpResponseHandler() {
@@ -53,32 +78,7 @@ public class MenuGridview extends AppCompatActivity {
             }
         });
     }
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_principal,menu);
-        return super.onCreateOptionsMenu(menu);
-    }
 
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
-            case R.id.add:
-                //txtMensaje.setText(getString(R.string.textoExplicativo)+getString(R.string.agregar));
-                break;
-            //case R.id.search:
-                //txtMensaje.setText(getString(R.string.textoExplicativo)+getString(R.string.buscar));
-                //break;
-            case R.id.edit:
-                //txtMensaje.setText(getString(R.string.textoExplicativo)+getString(R.string.modificar));
-                break;
-            case R.id.delete:
-                //txtMensaje.setText(getString(R.string.textoExplicativo)+getString(R.string.eliminar));
-                break;
-            default:
-                break;
-        }
-        return super.onOptionsItemSelected(item);
-    }
     private void listarMenu(String respuesta) {
         ArrayList <EntidadMenus> lista= new ArrayList<> ();
         try {

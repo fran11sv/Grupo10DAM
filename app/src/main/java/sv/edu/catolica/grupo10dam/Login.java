@@ -3,10 +3,13 @@ package sv.edu.catolica.grupo10dam;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.loopj.android.http.AsyncHttpClient;
@@ -30,6 +33,7 @@ public class Login extends AppCompatActivity {
 
         etUsuario=findViewById(R.id.txtUsuario);
         etContra=findViewById(R.id.txtContra);
+        getSupportActionBar().hide();
     }
 
     public void verificarDatos(View view){
